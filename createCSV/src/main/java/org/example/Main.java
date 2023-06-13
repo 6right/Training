@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.Random;
 
 public class Main {
-    private static final String CSV_FILE_PATH = "C:\\Users\\bright_pc\\Desktop\\Coding\\Training\\createCSV\\new\\data.csv";
+    private static final String CSV_FILE_PATH = "createCSV/new/data.csv";
     private static final String CHARACTERS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 ";
 
 
