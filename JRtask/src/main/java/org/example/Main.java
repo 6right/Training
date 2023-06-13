@@ -66,6 +66,7 @@ public class Main {
             }
 
             Timestamp end = new Timestamp(System.currentTimeMillis());
+            System.out.println();
             System.out.println("Time taken: " + (end.getTime() - start.getTime()) + "ms");
 
             long memoryAfter = getUsedMemory(memoryBean);
