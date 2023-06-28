@@ -21,7 +21,7 @@ public class Main {
         Timestamp start = new Timestamp(System.currentTimeMillis());
         HashMap<Integer, HashMap<Integer, Integer>> userTaskTime = new HashMap<>();
         try {
-            FileReader fileReader = new FileReader("C:\\Users\\bright_pc\\Desktop\\Coding\\Training\\createCSV\\new\\teach_call.csv");
+            FileReader fileReader = new FileReader("createCSV\\new\\teach_call.csv");
             BufferedReader reader = new BufferedReader(fileReader);
 
             reader.readLine(); // skip the first line
@@ -77,7 +77,7 @@ public class Main {
         Timestamp start = new Timestamp(System.currentTimeMillis());
         HashMap<Integer, Integer> taskTime = new HashMap<>();
         try {
-            FileReader fileReader = new FileReader("C:\\Users\\bright_pc\\Desktop\\Coding\\Training\\createCSV\\new\\teach_call.csv");
+            FileReader fileReader = new FileReader("createCSV\\new\\teach_call.csv");
             BufferedReader reader = new BufferedReader(fileReader);
 
             reader.readLine(); // skip the first line
