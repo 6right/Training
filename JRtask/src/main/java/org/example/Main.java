@@ -15,18 +15,13 @@ public class Main {
 
     }
 
-    // Print information like this:
-    // User 213:
-    //  Task 1: 1000 minutes | Task 2: 2000 minutes | Task 3: 3000 minutes
-    // User 214:
-    //  Task 1: 1000 minutes | Task 2: 2000 minutes | Task 3: 3000 minutes
     public static void sumOfTaskForEachUser() {
         MemoryMXBean memoryBean = ManagementFactory.getMemoryMXBean();
         long memoryBefore = getUsedMemory(memoryBean);
         Timestamp start = new Timestamp(System.currentTimeMillis());
         HashMap<Integer, HashMap<Integer, Integer>> userTaskTime = new HashMap<>();
         try {
-            FileReader fileReader = new FileReader("createCSV/new/teach call.csv");
+            FileReader fileReader = new FileReader("C:\\Users\\bright_pc\\Desktop\\Coding\\Training\\createCSV\\new\\teach_call.csv");
             BufferedReader reader = new BufferedReader(fileReader);
 
             reader.readLine(); // skip the first line
@@ -57,8 +52,6 @@ public class Main {
                 System.out.println();
                 System.out.println("User " + userId + ":");
                 HashMap<Integer, Integer> taskTime = userTaskTime.get(userId);
-                // Print task information like this:
-                // Task 1: 100 minutes | Task 2: 200 minutes | Task 3: 300 minutes | ...
                 System.out.print("    ");
                 for (int taskId : taskTime.keySet()) {
                     System.out.print("Task " + taskId + ": " + taskTime.get(taskId) + " minutes | ");
@@ -67,56 +60,12 @@ public class Main {
 
             Timestamp end = new Timestamp(System.currentTimeMillis());
             System.out.println();
-            System.out.println("Time taken: " + (end.getTime() - start.getTime()) + "ms");
+            double time = (double) (end.getTime() - start.getTime());
+            System.out.println("Time taken: " + (time / 1000) + "sec " + "(" + (int) time + "ms)");
 
             long memoryAfter = getUsedMemory(memoryBean);
             System.out.println("Used memory after: " + memoryAfter / (1024 * 1024) + " mb");
             System.out.println("Memory used: " + ((memoryAfter - memoryBefore) / (1024 * 1024)) + " mb");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-
-
-    public static void sumTheTaskTime() {
-        MemoryMXBean memoryBean = ManagementFactory.getMemoryMXBean();
-        long memoryBefore = getUsedMemory(memoryBean);
-        Timestamp start = new Timestamp(System.currentTimeMillis());
-        HashMap<Integer, Integer> userTimeTask = new HashMap<>();
-        try {
-            FileReader fileReader = new FileReader("createCSV/new/teach call.csv");
-            BufferedReader reader = new BufferedReader(fileReader);
-
-            reader.readLine(); // skip the first line
-
-            String line;
-            while ((line = reader.readLine()) != null) {
-
-                String[] data = line.split(",");
-                int userId = Integer.parseInt(data[0]);
-                int timeTask = Integer.parseInt(data[2]);
-
-                if (!userTimeTask.containsKey(userId)) {
-                    userTimeTask.put(userId, timeTask);
-                } else {
-                    userTimeTask.put(userId, userTimeTask.get(userId) + timeTask);
-                }
-
-            }
-
-            System.out.println(userTimeTask);
-            Timestamp end = new Timestamp(System.currentTimeMillis());
-            System.out.println("Time taken: " + (end.getTime() - start.getTime()) + "ms");
-
-            long memoryAfter = getUsedMemory(memoryBean);
-            System.out.println("Used memory after: " + memoryAfter / (1024 * 1024) + " mb");
-            System.out.println("Memory used: " + ((memoryAfter - memoryBefore) / (1024 * 1024)) + " mb");
-
-
-            fileReader.close();
-            reader.close();
-
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -128,7 +77,7 @@ public class Main {
         Timestamp start = new Timestamp(System.currentTimeMillis());
         HashMap<Integer, Integer> taskTime = new HashMap<>();
         try {
-            FileReader fileReader = new FileReader("createCSV/new/teach call.csv");
+            FileReader fileReader = new FileReader("C:\\Users\\bright_pc\\Desktop\\Coding\\Training\\createCSV\\new\\teach_call.csv");
             BufferedReader reader = new BufferedReader(fileReader);
 
             reader.readLine(); // skip the first line
@@ -152,10 +101,10 @@ public class Main {
             for (int i = 0; i < 10; i++) {
                 int max = 0;
                 int maxTime = 0;
-                for (int key : taskTime.keySet()) {
-                    if (taskTime.get(key) > max) {
-                        max = taskTime.get(key);
-                        maxTime = key;
+                for (int taskId : taskTime.keySet()) {
+                    if (taskTime.get(taskId) > max) {
+                        max = taskTime.get(taskId);
+                        maxTime = taskId;
                     }
                 }
                 top10[i] = maxTime;
@@ -165,10 +114,11 @@ public class Main {
 
             System.out.println("Top 10 tasks: ");
             for (int i = 0; i < 10; i++) {
-                System.out.println("Task " + top10[i] + " with " + top10Time[i] + " hours");
+                System.out.println("Task " + top10[i] + ": " + top10Time[i] + " hours");
             }
             Timestamp end = new Timestamp(System.currentTimeMillis());
-            System.out.println("Time taken: " + (end.getTime() - start.getTime()) + "ms");
+            double time = (double) (end.getTime() - start.getTime());
+            System.out.println("Time taken: " + (time / 1000) + "sec " + "(" + (int) time + "ms)");
 
             long memoryAfter = getUsedMemory(memoryBean);
             System.out.println("Used memory after: " + memoryAfter / (1024 * 1024) + " mb");
