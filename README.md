@@ -9,11 +9,11 @@ Launching in IntelliJ IDEA.
 ### The execution time and use memory.
 
 ```
-User Timing task
+User Timing Task
 Execution time: 2.995sec (2995ms)
 Memory usage: 164 mb
 
-TaskTimingTask
+Top Timing Tasks
 Execution time: 1.23sec (1230ms)
 Memory usage: 190 mb
 ```
