@@ -4,8 +4,14 @@
 Launching in IntelliJ IDEA. 
 
 ### Concole
-```javac Main.java (compile)``` 
-```java Main```
+to compile
+```
+javac Main.java 
+```
+to run
+```
+java Main
+```
 
 ### The execution time and use memory.
 
