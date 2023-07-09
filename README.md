@@ -4,7 +4,8 @@
 Launching in IntelliJ IDEA. 
 
 ### Concole
-```java JRtask\src\main\java\org\example\Main.java```
+```javac Main.java (compile)``` 
+```java Main```
 
 ### The execution time and use memory.
 
