@@ -10,10 +10,10 @@ Launching in IntelliJ IDEA.
 
 ```
 User Timing Task
-Execution time: 2.995sec (2995ms)
-Memory usage: 164 mb
+Execution time: 1.586sec (1586ms)
+Memory usage: 91 mb
 
 Top Timing Tasks
-Execution time: 1.23sec (1230ms)
-Memory usage: 190 mb
+Execution time: 0.916sec (916ms)
+Memory usage: 91 mb
 ```
