@@ -1,7 +1,7 @@
 # Teach Call Java
 
 ### IDE
-Launching in IntelliJ IDEA. 
+Launching in IntelliJ IDEA or console. 
 
 ### Concole
 to compile
