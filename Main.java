@@ -1,5 +1,3 @@
-package org.example;
-
 import java.io.*;
 import java.lang.management.ManagementFactory;
 import java.lang.management.MemoryMXBean;
