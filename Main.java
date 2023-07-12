@@ -1,3 +1,4 @@
+package org.example;
 
 import java.io.*;
 import java.lang.management.ManagementFactory;
@@ -19,9 +20,10 @@ public class Main {
         Timestamp start = new Timestamp(System.currentTimeMillis());
         HashMap<Integer, HashMap<Integer, Integer>> userTaskTime = new HashMap<>();
 
-        try {
-            FileReader fileReader = new FileReader("teach_call.csv");
-            BufferedReader reader = new BufferedReader(fileReader);
+        try (FileReader fileReader = new FileReader("teach_call.csv");
+             BufferedReader reader = new BufferedReader(fileReader);
+             BufferedWriter writer = new BufferedWriter(new FileWriter("sumOfTaskForEachUser.csv"));
+        ) {
 
             reader.readLine(); // skip the first line
 
@@ -46,10 +48,12 @@ public class Main {
                     }
                 }
             }
-            reader.close();
-            fileReader.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
-            BufferedWriter writer = new BufferedWriter(new FileWriter("sumOfTaskForEachUser.csv"));
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("sumOfTaskForEachUser.csv"))) {
+
             writer.write("User ID, Task ID, Time");
             writer.newLine();
             for (int userId : userTaskTime.keySet()) {
@@ -59,8 +63,6 @@ public class Main {
                     writer.newLine();
                 }
             }
-            writer.close();
-
             Timestamp end = new Timestamp(System.currentTimeMillis());
 
             System.out.println();
@@ -101,8 +103,8 @@ public class Main {
                 }
             }
 
-            int[] top10 = new int[10];
             int[] top10Time = new int[10];
+            int[] top10 = new int[10];
             for (int i = 0; i < 10; i++) {
                 int max = 0;
                 int maxTime = 0;
